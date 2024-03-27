@@ -93,7 +93,7 @@ export const SearchPage = () => {
   const [showList, setShowList] = useState(false); // 是否展示list部分
   const [highlightedIndex, setHighlightedIndex] = useState(-1); // 高亮索引
 
-  // 过滤后显示的数组
+  // 数组过滤
   const filteredData =
     arrData?.filter((item: any) =>
       item?.name?.toLowerCase()?.includes(searchText?.toLowerCase())
@@ -102,11 +102,6 @@ export const SearchPage = () => {
   // 点击listItem项回显内容至输入框
   const getItemClick = (item: any) => {
     setSearchText(item?.name);
-  };
-
-  // 点击address实现跳转
-  const getAddressClick = (address: string) => {
-    window.open(address, "_blank");
   };
 
   // 模糊匹配文字高亮显示
@@ -198,7 +193,7 @@ export const SearchPage = () => {
                       className={
                         "text-grey-300 text-xs cursor-pointer truncate hover:underline"
                       }
-                      onClick={() => getAddressClick(address)}
+                      onClick={() => window.open(address, "_blank")}
                     >
                       {address}
                     </div>
